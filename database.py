@@ -172,6 +172,7 @@ with app.app_context():
     review3.location = location2
     review3.user = user4
 
+    db.session.add(user5)
     db.session.add(location1)
     db.session.add(location2)
     db.session.commit()

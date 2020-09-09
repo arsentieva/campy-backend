@@ -1,7 +1,7 @@
 from app.models.models import db, User
 from flask_restx import Resource, Namespace, fields
 
-api = Namespace('users', description='Create and update user operations')
+api = Namespace('user', description='Create and update user operations')
 
 model = api.model("User", {
                             "firstName": fields.String( description="User first name.", example="John"),

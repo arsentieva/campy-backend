@@ -7,7 +7,7 @@ from flask_cors import CORS
 from flask_restx import Api
 from app.routes.auth import api as auth
 from app.routes.locations import api as locations
-from app.routes.users import api as users
+from app.routes.user import api as user
 from app.routes.reviews import api as reviews
 from app.routes.calendar import api as calendar
 
@@ -23,7 +23,7 @@ db.init_app(app)
 api = Api(app)
 api.add_namespace(auth)
 api.add_namespace(locations)
-api.add_namespace(users)
+api.add_namespace(user)
 api.add_namespace(calendar, path="/locations/<int:location_id>/calendar")
 api.add_namespace(reviews, path="/locations/<int:location_id>/reviews")
 
