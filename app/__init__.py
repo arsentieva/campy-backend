@@ -13,7 +13,7 @@ from app.routes.calendar import api as calendar
 
 
 app = Flask(__name__)
-CORS(app, resources={r"/*": {"origins": "*", "supports_credentials": True}})
+CORS(app)
 
 jwt = JWTManager(app)
 app.config.from_object(Configuration)

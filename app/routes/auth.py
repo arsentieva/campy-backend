@@ -77,12 +77,17 @@ class Login(Resource):
 
         if user:
             valid = user.check_password(password)
+ 
             if valid:
                 access_token = create_access_token(identity=email)
-                return {
+                response = {
                     "access_token": access_token,
                     "user_id": user.id,
-                   
                 }
+
+                return response
+            else:
+                return {"message": "Bad email or password."}, 401
+
         else:
             return {"message": "Bad email or password."}, 401
