@@ -20,9 +20,6 @@ app.config.from_object(Configuration)
 db.init_app(app)
 
 
-
-
-
 api = Api(app)
 api.add_namespace(auth)
 api.add_namespace(locations)
