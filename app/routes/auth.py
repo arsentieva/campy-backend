@@ -64,7 +64,8 @@ class Signup(Resource):
             db.session.commit() 
             access_token = create_access_token(identity=user.id)
             return {
-                    "token": access_token,
+                    "access_token": access_token,
+                    "user_id": user.id,
                     "message" : " Successfull registered user" }, 201
 
 

@@ -1,5 +1,6 @@
 from app.models.models import db, User
 from flask_restx import Resource, Namespace, fields
+from flask_jwt_extended import ( jwt_required, get_jwt_identity)
 
 api = Namespace('user', description='Create and update user operations')
 
@@ -29,13 +30,20 @@ class GetUser(Resource):
 
         return {"user":user.to_dictionary()}
 
-
+@api.route("/")
+class UserAccount(Resource):
     @api.doc('update_user')
     @api.response(201, 'User record updated')
     @api.expect(model)
-    def put(self, id):
-        '''Update user record by user id'''
-        user = User.query.get(int(id))
+    @jwt_required
+    def put(self):
+        '''Update user record by user'''
+        userId = get_jwt_identity()
+
+        if userId == None:
+            return {"message": "Not a valid user access token send "}, 404
+
+        user = User.query.get(userId))
         if user == None:
             return {"message": "no user found for the requested id"}
 
