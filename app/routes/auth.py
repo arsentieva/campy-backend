@@ -62,7 +62,10 @@ class Signup(Resource):
 
             db.session.add(user)
             db.session.commit() 
-            return {"message": "successfully created user."}, 201
+            access_token = create_access_token(identity=user.id)
+            return {
+                    "token": access_token,
+                    "message" : " Successfull registered user" }, 201
 
 
 @api.route("/login")
@@ -79,7 +82,7 @@ class Login(Resource):
             valid = user.check_password(password)
  
             if valid:
-                access_token = create_access_token(identity=email)
+                access_token = create_access_token(identity=user.id)
                 response = {
                     "access_token": access_token,
                     "user_id": user.id,
