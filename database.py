@@ -115,7 +115,8 @@ with app.app_context():
         state='CA',
         gps_coords='34.000872,-118.806839',
         description='It overlooks the Pacific Ocean with an amazing view. It was once destroyed from a very unfortunate happening, but now rebuilt like it never happened. Might find some interesting things down the basement.',
-        host_notes='Have fun and then get out. Also, don\'t touch things without permission.'
+        host_notes='Have fun and then get out. Also, don\'t touch things without permission.',
+        title="Home away from home."
     )
 
     location2 = Location(
@@ -124,7 +125,8 @@ with app.app_context():
         state='ZE',
         gps_coords='-3.66105, 144.52694',
         description='Has world class museums, and gardens. It has an well developed walkable river front on the edge of downtown where various events are held.',
-        host_notes='I\'m sad, so sad'
+        host_notes='I\'m sad, so sad',
+        title="Stay Happy Place"
     )
 
     review1 = Review(

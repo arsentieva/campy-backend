@@ -127,6 +127,7 @@ class Location(db.Model):
     __tablename__ = 'locations'
 
     id = db.Column(db.Integer, primary_key=True)
+    title = db.Column(db.String(70), nullable=False)
     address = db.Column(db.String(100), nullable=False)
     city = db.Column(db.String(50), nullable=False)
     state = db.Column(db.String(20), nullable=False)
@@ -151,6 +152,7 @@ class Location(db.Model):
     def to_dictionary(self):
         return {
             "id": self.id,
+            "title": self.title,
             "address": self.address,
             "city": self.city,
             "state": self.state,

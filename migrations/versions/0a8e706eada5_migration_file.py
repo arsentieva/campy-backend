@@ -1,8 +1,8 @@
-"""first migration file
+"""migration file
 
-Revision ID: 4225e44408b0
+Revision ID: 0a8e706eada5
 Revises: 
-Create Date: 2020-08-06 12:32:19.937441
+Create Date: 2020-09-10 12:12:43.909932
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '4225e44408b0'
+revision = '0a8e706eada5'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -57,6 +57,7 @@ def upgrade():
     )
     op.create_table('locations',
     sa.Column('id', sa.Integer(), nullable=False),
+    sa.Column('title', sa.String(length=70), nullable=False),
     sa.Column('address', sa.String(length=100), nullable=False),
     sa.Column('city', sa.String(length=50), nullable=False),
     sa.Column('state', sa.String(length=20), nullable=False),
@@ -88,8 +89,8 @@ def upgrade():
     )
     op.create_table('calendar',
     sa.Column('id', sa.Integer(), nullable=False),
-    sa.Column('start_date', sa.Date(), nullable=True),
-    sa.Column('end_date', sa.Date(), nullable=True),
+    sa.Column('start_date', sa.DateTime(), nullable=True),
+    sa.Column('end_date', sa.DateTime(), nullable=True),
     sa.Column('location_id', sa.Integer(), nullable=False),
     sa.Column('user_id', sa.Integer(), nullable=False),
     sa.ForeignKeyConstraint(['location_id'], ['locations.id'], ),
