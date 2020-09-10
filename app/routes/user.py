@@ -43,7 +43,7 @@ class UserAccount(Resource):
         if userId == None:
             return {"message": "Not a valid user access token send "}, 404
 
-        user = User.query.get(userId))
+        user = User.query.get(userId)
         if user == None:
             return {"message": "no user found for the requested id"}
 
