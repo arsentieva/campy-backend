@@ -1,6 +1,6 @@
 from app.models.models import db, Location, Amenity, Necessity, User
 from flask_restx import Resource, Namespace, fields
-
+from flask_jwt_extended import ( jwt_required, get_jwt_identity)
 
 api = Namespace(
     "locations", description="Locations create, read, update and delete operations"
@@ -21,7 +21,7 @@ model = api.model(
         "gps_coords": fields.String(
             required=True,
             description="Location GPS Coordinates.",
-            example="47.987 | -122.133",
+            example="47.987 , -122.133",
         ),
         "image_urls": fields.List(
             fields.String(
@@ -41,9 +41,6 @@ model = api.model(
             description="Location Host notes.", example="No smoking allowed on the area"
         ),
         "active": fields.Boolean(description="Location active.", example=True),
-        "user_id": fields.Integer(
-            required=True, description="Location Host User Id.", example=1
-        ),
         "electric_hookup": fields.Boolean(
             required=True,
             description="Does location have electric hookup?",
@@ -112,8 +109,14 @@ class Locations(Resource):
         return {"locations": data}
 
     @api.expect(model)
+    @jwt_required
     def post(self):
         """Create a new location to enjoy with the provided amenities, necessities data."""
+        userId = get_jwt_identity()
+        if userId == None:
+           return {"message": "Not a valid user access token send "}, 404
+
+        
         data = api.payload
 
         amenity_data = {
@@ -172,11 +175,10 @@ class Locations(Resource):
 
         data["necessity"] = necessity
 
-        data["user"] = User.query.get(data["user_id"])
+        data["user"] = User.query.get(userId)
 
         # Clean up the data variable to contain only information needed to create
         #  the Location record using the ** operator (like a spread operation)
-        data.pop("user_id")
         data.pop("electric_hookup")
         data.pop("water_hookup")
         data.pop("septic_hookup")
@@ -213,8 +215,14 @@ class LocationById(Resource):
             return {"message": "Locations not found!"}, 404
 
     @api.expect(model)
+    @jwt_required
     def put(self, id):
         """Update location by location id using the data passed in"""
+        userId = get_jwt_identity()
+
+        if userId == None:
+            return {"message": "Not a valid user access token send "}, 404
+
         location = Location.query.get(int(id))
         if location:
             data = api.payload
@@ -228,7 +236,7 @@ class LocationById(Resource):
             location.description = data["description"]
             location.host_notes = data["host_notes"]
             location.active = data["active"]
-            location.user = User.query.get(data["user_id"])
+            location.user = User.query.get(userId)
 
             amenity_data = {
                 "electric_hookup": data["electric_hookup"],
@@ -283,8 +291,14 @@ class LocationById(Resource):
         else:
             return {"message": "Locations not found!"}, 404
 
+    @jwt_required
     def delete(self, id):
         """Delete Location record for the provided location id"""
+        userId = get_jwt_identity()
+
+        if userId == None:
+            return {"message": "Not a valid user access token send "}, 404
+
         location = Location.query.get(int(id))
         if location:
             db.session.delete(location)
@@ -294,12 +308,17 @@ class LocationById(Resource):
             return {"message": "Locations not found!"}, 404
 
 
-@api.route("/hosts/<int:user_id>")
+@api.route("/host")
 @api.response(404, "Location not found")
-@api.param("user_id", "The user identifier")
+@jwt_required
 class LocationByUserId(Resource):
-    def get(self, user_id):
-        locations = Location.query.filter_by(user_id=user_id).all()
+    def get(self):
+        userId = get_jwt_identity()
+
+        if userId == None:
+            return {"message": "Not a valid user access token send "}, 404
+
+        locations = Location.query.filter_by(user_id=userId).all()
         # print(isinstance(locations, object), '***')
         data = [location.to_dictionary() for location in locations]
         return {"locations": data}
