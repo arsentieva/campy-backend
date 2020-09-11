@@ -129,6 +129,66 @@ with app.app_context():
         title="Stay Happy Place"
     )
 
+    location3 = Location(
+        address='25218 Eu St.',
+        city='Banjarmasin',
+        state='WA',
+        gps_coords='47.959, -120.539',
+        description='Has world class museums, and gardens. It has an well developed walkable river front on the edge of downtown where various events are held.',
+        host_notes='I\'m sad, so sad',
+        title="Silver Falls Group Site"
+    )
+
+    location3 = Location(
+        address='25218 Eu St.',
+        city='Banjarmasin',
+        state='WA',
+        gps_coords='48.0937, -120.313',
+        description='Has world class museums, and gardens. It has an well developed walkable river front on the edge of downtown where various events are held.',
+        host_notes='I\'m sad, so sad',
+        title="Okanogan-Wenatchee Forest"
+    )
+
+    location4 = Location(
+        address='25218 Eu St.',
+        city='Banjarmasin',
+        state='WA',
+        gps_coords='47.7586, -120.425',
+        description='Has world class museums, and gardens. It has an well developed walkable river front on the edge of downtown where various events are held.',
+        host_notes='I\'m sad, so sad',
+        title="Pine Flats Group Campground"
+    )
+
+    location5 = Location(
+        address='25218 Eu St.',
+        city='Banjarmasin',
+        state='WA',
+        gps_coords='48.02095, -120.641',
+        description='Has world class museums, and gardens. It has an well developed walkable river front on the edge of downtown where various events are held.',
+        host_notes='I\'m sad, so sad',
+        title="Cottonwood Cabin"
+    )
+
+    location6 = Location(
+        address='25218 Eu St.',
+        city='Banjarmasin',
+        state='WA',
+        gps_coords='47.896667, -120.698',
+        description='Has world class museums, and gardens. It has an well developed walkable river front on the edge of downtown where various events are held.',
+        host_notes='I\'m sad, so sad',
+        title="Grouse Creek Group Site"
+    )
+
+    location7 = Location(
+        address='25218 Eu St.',
+        city='Banjarmasin',
+        state='WA',
+        gps_coords='47.799, -120.716',
+        description='Has world class museums, and gardens. It has an well developed walkable river front on the edge of downtown where various events are held.',
+        host_notes='I\'m sad, so sad',
+        title="Nason Creek Campground"
+    )
+
     review1 = Review(
         overall_rating=4,
         noise=5,
@@ -166,6 +226,26 @@ with app.app_context():
     location2.amenity = location2_amenity
     location2.necessity = location2_neces
     location2.user = user2
+
+    location3.amenity = location2_amenity
+    location3.necessity = location2_neces
+    location3.user = user2
+
+    location4.amenity = location2_amenity
+    location4.necessity = location2_neces
+    location4.user = user2
+
+    location5.amenity = location2_amenity
+    location5.necessity = location2_neces
+    location5.user = user2
+
+    location6.amenity = location2_amenity
+    location6.necessity = location2_neces
+    location6.user = user2
+
+    location7.amenity = location2_amenity
+    location7.necessity = location2_neces
+    location7.user = user2
 
     review1.location = location1
     review1.user = user3
