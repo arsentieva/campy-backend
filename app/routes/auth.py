@@ -41,12 +41,32 @@ class Signup(Resource):
     @api.expect(signup_model)
     def post(self):
         """Create a user record on a signup"""
+        firstName = api.payload["firstName"]
+        lastName = api.payload["lastName"]
         email = api.payload["email"]
+        phoneNumber = api.payload["phoneNumber"]
         password = api.payload["password"]
+
+        if not firstName:
+            return {"message": "Please fill out First Name field"}, 400
+        
+        if not lastName:
+            return {"message": "Please fill out Last Name field"}, 400
+        
+        if not email:
+            return {"message": "Please fill out Email field"}, 400
+        elif "@" not in email:
+            return {"message": "Email must include @"}, 400
+        
+        if not phoneNumber:
+            return {"message": "Please fill out Phone Number field"}, 400
+        
+        if not password:
+            return {"message": "Please fill out Password field"}, 400
 
         test = User.query.filter_by(email=email).first()
         if test:
-            return {"message": "The email already is registered"}, 409
+            return {"message": "The email is already registered"}, 409
         else:
             password = api.payload["password"]
             first_name = api.payload["firstName"]

@@ -11,7 +11,7 @@ with app.app_context():
     db.create_all()
 
     # 4 users
-    # 2 locations
+    # 6 locations
     # 3 reviews
 
     user1 = User(
@@ -116,6 +116,7 @@ with app.app_context():
         gps_coords='34.000872,-118.806839',
         description='It overlooks the Pacific Ocean with an amazing view. It was once destroyed from a very unfortunate happening, but now rebuilt like it never happened. Might find some interesting things down the basement.',
         host_notes='Have fun and then get out. Also, don\'t touch things without permission.',
+        image_urls=["zibik-A6OHsnGYd18-unsplash.jpg", "edho-fitrah-ELevCx8PX4o-unsplash.jpg"],
         title="Home away from home."
     )
 
@@ -126,6 +127,7 @@ with app.app_context():
         gps_coords='-3.66105, 144.52694',
         description='Has world class museums, and gardens. It has an well developed walkable river front on the edge of downtown where various events are held.',
         host_notes='I\'m sad, so sad',
+        image_urls=["brooks-rice-8-jqqr-rpo0-unsplash.jpg", "cameron-vaughan-0AV7XLABuZk-unsplash.jpg"],
         title="Stay Happy Place"
     )
 
@@ -136,6 +138,7 @@ with app.app_context():
         gps_coords='47.959, -120.539',
         description='Has world class museums, and gardens. It has an well developed walkable river front on the edge of downtown where various events are held.',
         host_notes='I\'m sad, so sad',
+        image_urls=["blake-wisz-TcgASSD5G04-unsplash.jpg", "mike-erskine-S_VbdMTsdiA-unsplash.jpg"],
         title="Silver Falls Group Site"
     )
 
@@ -146,6 +149,7 @@ with app.app_context():
         gps_coords='48.0937, -120.313',
         description='Has world class museums, and gardens. It has an well developed walkable river front on the edge of downtown where various events are held.',
         host_notes='I\'m sad, so sad',
+        image_urls=["cameron-vaughan-0AV7XLABuZk-unsplash.jpg", "eric-muhr-ZPsJW-OLZQM-unsplash.jpg"],
         title="Okanogan-Wenatchee Forest"
     )
 
@@ -156,6 +160,7 @@ with app.app_context():
         gps_coords='47.7586, -120.425',
         description='Has world class museums, and gardens. It has an well developed walkable river front on the edge of downtown where various events are held.',
         host_notes='I\'m sad, so sad',
+        image_urls=["chris-holder-uY2UIyO5o5c-unsplash.jpg", "steve-halama-0YAGH_rU7j4-unsplash.jpg"],
         title="Pine Flats Group Campground"
     )
 
@@ -166,6 +171,7 @@ with app.app_context():
         gps_coords='48.02095, -120.641',
         description='Has world class museums, and gardens. It has an well developed walkable river front on the edge of downtown where various events are held.',
         host_notes='I\'m sad, so sad',
+        image_urls=["josh-hild-8f_VQ3EFbTg-unsplash.jpg", "laura-pluth-RMicIhNOOIg-unsplash.jpg"],
         title="Cottonwood Cabin"
     )
 
@@ -176,6 +182,7 @@ with app.app_context():
         gps_coords='47.896667, -120.698',
         description='Has world class museums, and gardens. It has an well developed walkable river front on the edge of downtown where various events are held.',
         host_notes='I\'m sad, so sad',
+        image_urls=["wei-pan-Ta0A1miYZKc-unsplash.jpg", "timothy-meinberg-xqV9QdGOSas-unsplash.jpg"],
         title="Grouse Creek Group Site"
     )
 
@@ -186,6 +193,7 @@ with app.app_context():
         gps_coords='47.799, -120.716',
         description='Has world class museums, and gardens. It has an well developed walkable river front on the edge of downtown where various events are held.',
         host_notes='I\'m sad, so sad',
+        image_urls=["dino-reichmuth-5Rhl-kSRydQ-unsplash.jpg", "dino-reichmuth-pl1mhwMctJc-unsplash.jpg"],
         title="Nason Creek Campground"
     )
 
