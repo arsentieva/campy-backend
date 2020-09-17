@@ -32,6 +32,23 @@ class GetUser(Resource):
 
 @api.route("/")
 class UserAccount(Resource):
+    @api.response(200, 'User found')
+    @api.doc('get_user')
+    @jwt_required
+    def get(self):
+        '''Get user by using the passed in access token in the payload, obtained on a user authorization'''
+        userId = get_jwt_identity()
+
+        if userId == None:
+            return {"message": "Not a valid user access token send "}, 404
+
+        user = User.query.get(userId)
+        if user == None:
+            return {"message": "no user found for the requested id"}, 404
+
+        return {"user":user.to_dictionary()}
+
+
     @api.doc('update_user')
     @api.response(201, 'User record updated')
     @api.expect(model)
