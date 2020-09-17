@@ -308,7 +308,7 @@ class LocationById(Resource):
             return {"message": "Locations not found!"}, 404
 
 
-@api.route("/host")
+@api.route("/host/")
 @api.response(404, "Location not found")
 class LocationByUserId(Resource):
     @api.doc("Get user's hosted location")
