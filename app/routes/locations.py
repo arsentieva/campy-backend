@@ -308,18 +308,20 @@ class LocationById(Resource):
             return {"message": "Locations not found!"}, 404
 
 
-# @api.route("/host")
-# @api.response(404, "Location not found")
-# @jwt_required
-# class LocationByUserId(Resource):
-#     def get(self):
-#         userId = get_jwt_identity()
+@api.route("/host")
+@api.response(404, "Location not found")
+class LocationByUserId(Resource):
+    @api.doc("Get user's hosted location")
+    @api.response(200, "Hosted Location found")
+    @jwt_required
+    def get(self):
+        userId = get_jwt_identity()
 
-#         if userId == None:
-#             return {"message": "Not a valid user access token send "}, 404
+        if userId == None:
+            return {"message": "Not a valid user access token send "}, 404
 
-#         locations = Location.query.filter_by(user_id=userId).all()
-#         # print(isinstance(locations, object), '***')
-#         data = [location.to_dictionary() for location in locations]
-#         return {"locations": data}
+        locations = Location.query.filter_by(user_id=userId).all()
+        # print(isinstance(locations, object), '***')
+        data = [location.to_dictionary() for location in locations]
+        return {"locations": data}
 
