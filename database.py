@@ -11,7 +11,7 @@ with app.app_context():
     db.create_all()
 
     # 4 users
-    # 2 locations
+    # 6 locations
     # 3 reviews
 
     user1 = User(
@@ -116,7 +116,9 @@ with app.app_context():
         gps_coords='34.000872,-118.806839',
         description='It overlooks the Pacific Ocean with an amazing view. It was once destroyed from a very unfortunate happening, but now rebuilt like it never happened. Might find some interesting things down the basement.',
         host_notes='Have fun and then get out. Also, don\'t touch things without permission.',
-        image_urls=["zibik-A6OHsnGYd18-unsplash.jpg", "edho-fitrah-ELevCx8PX4o-unsplash.jpg"],
+        image_urls=[
+         "https://firebasestorage.googleapis.com/v0/b/campy-810fc.appspot.com/o/location_images%2Fzibik-A6OHsnGYd18-unsplash.jpg?alt=media&token=664286fb-0285-41b0-8c8c-2ab511f17d09",
+         "https://firebasestorage.googleapis.com/v0/b/campy-810fc.appspot.com/o/location_images%2Fblake-wisz-TcgASSD5G04-unsplash.jpg?alt=media&token=3edb60be-b096-4c2f-87e9-68df6eec20a5"],
         title="Home away from home."
     )
 
@@ -127,7 +129,9 @@ with app.app_context():
         gps_coords='-3.66105, 144.52694',
         description='Has world class museums, and gardens. It has an well developed walkable river front on the edge of downtown where various events are held.',
         host_notes='I\'m sad, so sad',
-        image_urls=["brooks-rice-8-jqqr-rpo0-unsplash.jpg", "cameron-vaughan-0AV7XLABuZk-unsplash.jpg"],
+        image_urls=[
+          "https://firebasestorage.googleapis.com/v0/b/campy-810fc.appspot.com/o/location_images%2Fbrooks-rice-8-jqqr-rpo0-unsplash.jpg?alt=media&token=4ffe2679-eaff-41ac-b890-bd585bb8573d",
+          "https://firebasestorage.googleapis.com/v0/b/campy-810fc.appspot.com/o/location_images%2Fcameron-vaughan-0AV7XLABuZk-unsplash.jpg?alt=media&token=a181c0d6-2426-4e31-8843-2c54473b8461"],
         title="Stay Happy Place"
     )
 
@@ -138,7 +142,9 @@ with app.app_context():
         gps_coords='47.959, -120.539',
         description='Has world class museums, and gardens. It has an well developed walkable river front on the edge of downtown where various events are held.',
         host_notes='I\'m sad, so sad',
-        image_urls=["blake-wisz-TcgASSD5G04-unsplash.jpg", "mike-erskine-S_VbdMTsdiA-unsplash.jpg"],
+        image_urls=[
+         "https://firebasestorage.googleapis.com/v0/b/campy-810fc.appspot.com/o/location_images%2Fcameron-vaughan-0AV7XLABuZk-unsplash.jpg?alt=media&token=a181c0d6-2426-4e31-8843-2c54473b8461blake-wisz-TcgASSD5G04-unsplash.jpg",
+         "https://firebasestorage.googleapis.com/v0/b/campy-810fc.appspot.com/o/location_images%2Fdino-reichmuth-5Rhl-kSRydQ-unsplash.jpg?alt=media&token=907439e7-055f-46e4-9124-aa99d6b950f4"],
         title="Silver Falls Group Site"
     )
 
@@ -149,7 +155,9 @@ with app.app_context():
         gps_coords='48.0937, -120.313',
         description='Has world class museums, and gardens. It has an well developed walkable river front on the edge of downtown where various events are held.',
         host_notes='I\'m sad, so sad',
-        image_urls=["cameron-vaughan-0AV7XLABuZk-unsplash.jpg", "eric-muhr-ZPsJW-OLZQM-unsplash.jpg"],
+        image_urls=[
+            "https://firebasestorage.googleapis.com/v0/b/campy-810fc.appspot.com/o/location_images%2Fdino-reichmuth-pl1mhwMctJc-unsplash.jpg?alt=media&token=0a5b0aa0-1c89-4372-9731-cb1f765b3433",
+             "https://firebasestorage.googleapis.com/v0/b/campy-810fc.appspot.com/o/location_images%2Fdominik-jirovsky-re2LZOB2XvY-unsplash.jpg?alt=media&token=b456d772-c4cf-4f5b-b8eb-4a903e4928ba"],
         title="Okanogan-Wenatchee Forest"
     )
 
@@ -160,7 +168,9 @@ with app.app_context():
         gps_coords='47.7586, -120.425',
         description='Has world class museums, and gardens. It has an well developed walkable river front on the edge of downtown where various events are held.',
         host_notes='I\'m sad, so sad',
-        image_urls=["chris-holder-uY2UIyO5o5c-unsplash.jpg", "steve-halama-0YAGH_rU7j4-unsplash.jpg"],
+        image_urls=[
+            "https://firebasestorage.googleapis.com/v0/b/campy-810fc.appspot.com/o/location_images%2Fedho-fitrah-ELevCx8PX4o-unsplash.jpg?alt=media&token=34726190-865e-48c0-b5a6-2db7eb8b756c", 
+            "https://firebasestorage.googleapis.com/v0/b/campy-810fc.appspot.com/o/location_images%2Feric-muhr-ZPsJW-OLZQM-unsplash.jpg?alt=media&token=b808f44d-1b63-4bf3-aa0b-43fc7d975d63"],
         title="Pine Flats Group Campground"
     )
 
@@ -171,7 +181,9 @@ with app.app_context():
         gps_coords='48.02095, -120.641',
         description='Has world class museums, and gardens. It has an well developed walkable river front on the edge of downtown where various events are held.',
         host_notes='I\'m sad, so sad',
-        image_urls=["josh-hild-8f_VQ3EFbTg-unsplash.jpg", "laura-pluth-RMicIhNOOIg-unsplash.jpg"],
+        image_urls=[
+            "https://firebasestorage.googleapis.com/v0/b/campy-810fc.appspot.com/o/location_images%2Fjonathan-forage-1azAjl8FTnU-unsplash.jpg?alt=media&token=c91ee4c3-b653-4ece-9009-1c8433af9232",
+            "https://firebasestorage.googleapis.com/v0/b/campy-810fc.appspot.com/o/location_images%2Fjosh-hild-8f_VQ3EFbTg-unsplash.jpg?alt=media&token=4910bf97-62c2-45cc-80aa-bf3e58049e93"],
         title="Cottonwood Cabin"
     )
 
@@ -182,7 +194,9 @@ with app.app_context():
         gps_coords='47.896667, -120.698',
         description='Has world class museums, and gardens. It has an well developed walkable river front on the edge of downtown where various events are held.',
         host_notes='I\'m sad, so sad',
-        image_urls=["wei-pan-Ta0A1miYZKc-unsplash.jpg", "timothy-meinberg-xqV9QdGOSas-unsplash.jpg"],
+        image_urls=[
+            "https://firebasestorage.googleapis.com/v0/b/campy-810fc.appspot.com/o/location_images%2Flaura-pluth-RMicIhNOOIg-unsplash.jpg?alt=media&token=d81563cc-d6f3-44c5-9883-b350cc6ccbf9", 
+            "https://firebasestorage.googleapis.com/v0/b/campy-810fc.appspot.com/o/location_images%2Fmike-erskine-S_VbdMTsdiA-unsplash.jpg?alt=media&token=f9fc0db1-6ac8-4f18-acfc-130ec8ba4f4d"],
         title="Grouse Creek Group Site"
     )
 
@@ -193,7 +207,9 @@ with app.app_context():
         gps_coords='47.799, -120.716',
         description='Has world class museums, and gardens. It has an well developed walkable river front on the edge of downtown where various events are held.',
         host_notes='I\'m sad, so sad',
-        image_urls=["dino-reichmuth-5Rhl-kSRydQ-unsplash.jpg", "dino-reichmuth-pl1mhwMctJc-unsplash.jpg"],
+        image_urls=[
+            "https://firebasestorage.googleapis.com/v0/b/campy-810fc.appspot.com/o/location_images%2Fpatrick-hendry-euaPfbR6nC0-unsplash.jpg?alt=media&token=dcc8e005-dd14-4e87-a4ca-43ddbdb27d6d", 
+            "https://firebasestorage.googleapis.com/v0/b/campy-810fc.appspot.com/o/location_images%2Fscott-goodwill-y8Ngwq34_Ak-unsplash.jpg?alt=media&token=48d927cb-6de6-4e4b-b6a5-9f0de7873ea5"],
         title="Nason Creek Campground"
     )
 
