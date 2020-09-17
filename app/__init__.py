@@ -17,6 +17,7 @@ CORS(app)
 
 jwt = JWTManager(app)
 app.config.from_object(Configuration)
+app.config["JWT_ACCESS_TOKEN_EXPIRES"]=False
 db.init_app(app)
 
 

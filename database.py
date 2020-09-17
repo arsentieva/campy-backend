@@ -11,7 +11,7 @@ with app.app_context():
     db.create_all()
 
     # 4 users
-    # 2 locations
+    # 6 locations
     # 3 reviews
 
     user1 = User(
