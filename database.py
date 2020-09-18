@@ -62,7 +62,7 @@ with app.app_context():
         createdAt='2021-02-15'
     )
 
-    user5 = User(
+    demo_user = User(
         first_name='Demo',
         last_name='User',
         hashed_password='pbkdf2:sha256:150000$7FTGE2c3$1ea0371496f82b298ae582f944120a614cb3e60974c4124bf7ef142fe6a1da90',
@@ -252,6 +252,8 @@ with app.app_context():
 
     glacier_campground.amenity = glacier_campground_amen
     glacier_campground.necessity = glacier_campground_nec
+    glacier_campground.user = user1
+    db.session.add(glacier_campground)
 
     stillwater = Location(
         address='8590 US-34',
@@ -288,6 +290,8 @@ with app.app_context():
 
     stillwater.amenity = stillwater_amen
     stillwater.necessity = stillwater_nec
+    stillwater.user = user1
+    db.session.add(stillwater)
 
     west_omaha = Location(
         address='14601 US-6',
@@ -324,6 +328,8 @@ with app.app_context():
 
     west_omaha.amenity = west_omaha_amen
     west_omaha.necessity = west_omaha_nec
+    west_omaha.user = user1
+    db.session.add(west_omaha)
 
     pokegama = Location(
         address='34385 US-2',
@@ -360,6 +366,8 @@ with app.app_context():
 
     pokegama.amenity = pokegama_amen
     pokegama.necessity = pokegama_nec
+    pokegama.user = user1
+    db.session.add(pokegama)
 
     fredericksburg = Location(
         address='5681 East US-290',
@@ -396,6 +404,8 @@ with app.app_context():
 
     fredericksburg.amenity = fredericksburg_amen
     fredericksburg.necessity = fredericksburg_nec
+    fredericksburg.user = demo_user
+    db.session.add(fredericksburg)
 
     livingston = Location(
         address='15152 US Hwy 190 West',
@@ -432,6 +442,8 @@ with app.app_context():
 
     livingston.amenity = livingston_amen
     livingston.necessity = livingston_nec
+    livingston.user = demo_user
+    db.session.add(livingston)
 
     # asdf = Location(
     #     address='',
@@ -570,7 +582,7 @@ with app.app_context():
     review3.location = location2
     review3.user = user4
 
-    db.session.add(user5)
+    db.session.add(demo_user)
     db.session.add(location1)
     db.session.add(location2)
     db.session.commit()
