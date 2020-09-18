@@ -445,6 +445,356 @@ with app.app_context():
     livingston.user = demo_user
     db.session.add(livingston)
 
+    zephyr = Location(
+        address='760 US-50',
+        city='Zephyr Cove',
+        state='NV',
+        gps_coords='39.006345, -1119.946524',
+        description="Zephyr Cove RV and Campground is just a short walk from the Zephyr Cove Restaurant, Zephyr Cove Resort, beach access, the M.S. Dixie ll paddlewheeler, marina activities, horseback riding, and general store. Whether you're pitching a tent or enjoying the comfort of your RV, you'll love this family-friendly destination",
+        host_notes='Contact this property for rates and availability',
+        image_urls=[
+            "https://firebasestorage.googleapis.com/v0/b/campy-810fc.appspot.com/o/location_images%2Fzephyr1.png?alt=media&token=95b6500b-3980-4a21-85f1-b3863bfcc4ad",
+            "https://firebasestorage.googleapis.com/v0/b/campy-810fc.appspot.com/o/location_images%2Fzephyr2.png?alt=media&token=0653a8bc-ed3f-475b-8cdd-fb464c5f0dd4", "https://firebasestorage.googleapis.com/v0/b/campy-810fc.appspot.com/o/location_images%2Fzephyr3.png?alt=media&token=af62b4d2-2583-42e9-a6f5-c8b8465bec41"],
+        title="Zephyr Cove"
+    )
+
+    zephyr_nec = Necessity(
+        rv_compatible=True,
+        generators_allowed=True,
+        fires_allowed=True,
+        max_days=4,
+        pad_type='dirt'
+    )
+
+    zephyr_amen = Amenity(
+        electric_hookup=False,
+        water_hookup=True,
+        septic_hookup=False,
+        assigned_parking=True,
+        tow_vehicle_parking=False,
+        trash_removal=True,
+        water_front=True,
+        pets_allowed=True,
+        internet_access=False
+    )
+
+    zephyr.amenity = zephyr_amen
+    zephyr.necessity = zephyr_nec
+    zephyr.user = user1
+    db.session.add(zephyr)
+
+    wapiti = Location(
+        address='2225 US-14',
+        city='Cody',
+        state='WY',
+        gps_coords='53.833815, -118.061969',
+        description="Wapiti Campground hosts 41 campsites on the North Fork of the Shoshone River, next to the historic Wapiti Ranger Station",
+        host_notes='Contact this property for rates and availability',
+        image_urls=[
+            "https://firebasestorage.googleapis.com/v0/b/campy-810fc.appspot.com/o/location_images%2Fwapiti1.png?alt=media&token=6d0861df-d267-4be2-860c-b874012b1a42",
+            "https://firebasestorage.googleapis.com/v0/b/campy-810fc.appspot.com/o/location_images%2Fwapiti2.png?alt=media&token=566e7aea-d1da-4e7c-8481-2fd0b99dce4d", "https://firebasestorage.googleapis.com/v0/b/campy-810fc.appspot.com/o/location_images%2Fwapiti3.png?alt=media&token=4e281818-251c-4959-b8d7-19980b24ed78"],
+        title="Wapiti Campground"
+    )
+
+    wapiti_nec = Necessity(
+        rv_compatible=True,
+        generators_allowed=False,
+        fires_allowed=False,
+        max_days=5,
+        pad_type='grass & dirt'
+    )
+
+    wapiti_amen = Amenity(
+        electric_hookup=False,
+        water_hookup=False,
+        septic_hookup=False,
+        assigned_parking=True,
+        tow_vehicle_parking=True,
+        trash_removal=False,
+        water_front=True,
+        pets_allowed=True,
+        internet_access=False
+    )
+
+    wapiti.amenity = wapiti_amen
+    wapiti.necessity = wapiti_nec
+    wapiti.user = user1
+    db.session.add(wapiti)
+
+    falls = Location(
+        address='U.S. 26',
+        city='Irwin',
+        state='ID',
+        gps_coords='43.432695, -111.362554',
+        description="Falls Campground is located next to the Snake River in beautiful Swan Valley at an elevation of 5,100 feet.",
+        host_notes='Contact this property for rates and availability',
+        image_urls=[
+            "https://firebasestorage.googleapis.com/v0/b/campy-810fc.appspot.com/o/location_images%2Ffalls1.png?alt=media&token=8a10e4a9-3647-4313-aaf3-4ab7fac9b927",
+            "https://firebasestorage.googleapis.com/v0/b/campy-810fc.appspot.com/o/location_images%2Ffalls2.png?alt=media&token=7054b898-f66f-4a06-be53-1165bff50d7b", 
+            "https://firebasestorage.googleapis.com/v0/b/campy-810fc.appspot.com/o/location_images%2Ffalls3.png?alt=media&token=bc6b138c-94e9-4faa-b34a-b13df70158f2",
+            "https://firebasestorage.googleapis.com/v0/b/campy-810fc.appspot.com/o/location_images%2Ffalls4.png?alt=media&token=52b4ce5b-914e-4e8b-a606-762aaf113890", ],
+        title="Falls Campground"
+    )
+
+    falls_nec = Necessity(
+        rv_compatible=True,
+        generators_allowed=True,
+        fires_allowed=True,
+        max_days=4,
+        pad_type='grass & dirt'
+    )
+
+    falls_amen = Amenity(
+        electric_hookup=False,
+        water_hookup=False,
+        septic_hookup=False,
+        assigned_parking=True,
+        tow_vehicle_parking=True,
+        trash_removal=False,
+        water_front=True,
+        pets_allowed=True,
+        internet_access=False
+    )
+
+    falls.amenity = falls_amen
+    falls.necessity = falls_nec
+    falls.user = user1
+    db.session.add(falls)
+
+    custer = Location(
+        address='12503 US Highway 16A',
+        city='Custer',
+        state='SD',
+        gps_coords='43.768783, -103.558967',
+        description="Custer Mountain Cabins and Campground is conveniently located in the beautiful Black Hills of South Dakota 1.5 miles east of the City of Custer and   2 miles west of  Custer State Park on Highway 16A.",
+        host_notes='Explore the beauty of the Black Hills from the quiet tranquility of Custer Mountain Cabins & Campground.',
+        image_urls=[
+            "https://firebasestorage.googleapis.com/v0/b/campy-810fc.appspot.com/o/location_images%2Fcuster1.png?alt=media&token=c0401bea-1c7e-4196-9829-4bc9c4156dde",
+            "https://firebasestorage.googleapis.com/v0/b/campy-810fc.appspot.com/o/location_images%2Fcuster2.png?alt=media&token=04d03be8-cf8a-4d3c-886f-5bd32ed97968",
+            "https://firebasestorage.googleapis.com/v0/b/campy-810fc.appspot.com/o/location_images%2Fcuster3.png?alt=media&token=6019456a-d221-4511-87e0-3cc851a193b0"],
+        title="Custer Mountain Cabins"
+    )
+
+    custer_nec = Necessity(
+        rv_compatible=False,
+        generators_allowed=False,
+        fires_allowed=False,
+        max_days=5,
+        pad_type='dirt'
+    )
+
+    custer_amen = Amenity(
+        electric_hookup=True,
+        water_hookup=False,
+        septic_hookup=False,
+        assigned_parking=True,
+        tow_vehicle_parking=True,
+        trash_removal=True,
+        water_front=False,
+        pets_allowed=True,
+        internet_access=True
+    )
+
+    custer.amenity = custer_amen
+    custer.necessity = custer_nec
+    custer.user = user1
+    db.session.add(custer)
+
+    kansas_city_west = Location(
+        address='1473 US-40',
+        city='Lawrence',
+        state='KS',
+        gps_coords='38.996994, -95.229647',
+        description="We are open for RV camping at the Kansas City West/Lawrence KOA and are continuing to follow county and state-issued Covid-19 guidelines, which have some of our recreation and other amenities temporarily closed. We have introduced additional cleaning standards, beyond our normal procedures, in order to provide any guests still wishing to enjoy the outdoors to have a safe and enjoyable stay. Please check back here for updates and we hope to see you soon!",
+        host_notes='Contact this property for rates and availability',
+        image_urls=[
+            "https://firebasestorage.googleapis.com/v0/b/campy-810fc.appspot.com/o/location_images%2Fkansas_city_west1.png?alt=media&token=bb17d72f-0175-41fb-bf4c-09fceaf679ab",
+            "https://firebasestorage.googleapis.com/v0/b/campy-810fc.appspot.com/o/location_images%2Fkansas_city_west2.png?alt=media&token=26425666-cd5a-4316-a4cf-a9a2cc0b6623",
+            "https://firebasestorage.googleapis.com/v0/b/campy-810fc.appspot.com/o/location_images%2Fkansas_city_west3.png?alt=media&token=810fcb4e-81bb-462f-a8bd-6079ca413fd7"],
+        title="Kansas City West"
+    )
+
+    kansas_city_west_nec = Necessity(
+        rv_compatible=True,
+        generators_allowed=False,
+        fires_allowed=False,
+        max_days=4,
+        pad_type='asphalt'
+    )
+
+    kansas_city_west_amen = Amenity(
+        electric_hookup=True,
+        water_hookup=True,
+        septic_hookup=True,
+        assigned_parking=True,
+        tow_vehicle_parking=True,
+        trash_removal=True,
+        water_front=False,
+        pets_allowed=False,
+        internet_access=True
+    )
+
+    kansas_city_west.amenity = kansas_city_west_amen
+    kansas_city_west.necessity = kansas_city_west_nec
+    kansas_city_west.user = user1
+    db.session.add(kansas_city_west)
+
+    evening_star = Location(
+        address='23049 US Hwy 136',
+        city='Topeka',
+        state='IL',
+        gps_coords='40.295911, -89.920807',
+        description="Established in fall of 1969 by Bill Walker, Evening Star Camping Resort is located on 35 acres of pristine land 6 miles outside the town of Havana, Illinois. It is a great place to enjoy family camping the way you like it. We offer lots of events, themed weekends and excitement or complete relaxation by the campfire, if you choose.",
+        host_notes='Contact this property for rates and availability',
+        image_urls=[
+            "https://firebasestorage.googleapis.com/v0/b/campy-810fc.appspot.com/o/location_images%2Fevening_star1.png?alt=media&token=7be90f22-5e14-4beb-966d-14576a009df9",
+            "https://firebasestorage.googleapis.com/v0/b/campy-810fc.appspot.com/o/location_images%2Fevening_star2.png?alt=media&token=d4d20bf0-9cd7-41a1-bd62-5af33e5a8480",
+            "https://firebasestorage.googleapis.com/v0/b/campy-810fc.appspot.com/o/location_images%2Fevening_star3.png?alt=media&token=98f7cc14-7ed0-43f9-95c2-d44b4667aeac"],
+        title="Evening Star Camping Resort"
+    )
+
+    evening_star_nec = Necessity(
+        rv_compatible=True,
+        generators_allowed=True,
+        fires_allowed=True,
+        max_days=4,
+        pad_type='asphalt'
+    )
+
+    evening_star_amen = Amenity(
+        electric_hookup=True,
+        water_hookup=True,
+        septic_hookup=True,
+        assigned_parking=True,
+        tow_vehicle_parking=True,
+        trash_removal=True,
+        water_front=True,
+        pets_allowed=True,
+        internet_access=True
+    )
+
+    evening_star.amenity = evening_star_amen
+    evening_star.necessity = evening_star_nec
+    evening_star.user = user1
+    db.session.add(evening_star)
+
+    lucas_kentucky = Location(
+        address='1880 Narrows Rd',
+        city='Lucas',
+        state='KY',
+        gps_coords='36.902552, -86.067483',
+        description="Surrounded by water, just a nice place to relax",
+        host_notes='Contact this property for rates and availability',
+        image_urls=[
+            "https://firebasestorage.googleapis.com/v0/b/campy-810fc.appspot.com/o/location_images%2Flucas_kentucky1.png?alt=media&token=ff240db0-195b-48ab-9ad0-7797b4fe32c0",
+            "https://firebasestorage.googleapis.com/v0/b/campy-810fc.appspot.com/o/location_images%2Flucas_kentucky2.png?alt=media&token=816cf03c-b0a6-4c17-a1fd-eb6c392c3bef",
+            "https://firebasestorage.googleapis.com/v0/b/campy-810fc.appspot.com/o/location_images%2Flucas_kentucky3.png?alt=media&token=5c186fc5-7341-4547-ad34-78b820b28d53"],
+        title="US Campgrounds"
+    )
+
+    lucas_kentucky_nec = Necessity(
+        rv_compatible=False,
+        generators_allowed=True,
+        fires_allowed=False,
+        max_days=4,
+        pad_type='grass'
+    )
+
+    lucas_kentucky_amen = Amenity(
+        electric_hookup=False,
+        water_hookup=False,
+        septic_hookup=False,
+        assigned_parking=False,
+        tow_vehicle_parking=False,
+        trash_removal=False,
+        water_front=True,
+        pets_allowed=True,
+        internet_access=False
+    )
+
+    lucas_kentucky.amenity = lucas_kentucky_amen
+    lucas_kentucky.necessity = lucas_kentucky_nec
+    lucas_kentucky.user = user1
+    db.session.add(lucas_kentucky)
+
+    adventure_bound = Location(
+        address='4609 US-321',
+        city='Gatlinburg',
+        state='TN',
+        gps_coords='35.762647, -83.314409',
+        description="Welcome to Adventure Bound Gatlinburg, our family-owned Gatlinburg, Tennessee campground. Camping in the Smokies has never been more enjoyable than this; a secluded mountain hideaway that is only a short trip from the hustle-bustle of Gatlinburg and Pigeon Forge attractions, shopping, and restaurants. Here, we like to stretch the traditional idea of a Gatlinburg campground to put our guests in a true resort that will have you coming back, season after season.",
+        host_notes='Contact this property for rates and availability',
+        image_urls=[
+            "https://firebasestorage.googleapis.com/v0/b/campy-810fc.appspot.com/o/location_images%2Fadventure_bound1.png?alt=media&token=caa07fa6-29ce-48b3-940d-0f2074353716",
+            "https://firebasestorage.googleapis.com/v0/b/campy-810fc.appspot.com/o/location_images%2Fadventure_bound2.png?alt=media&token=ca6003a3-14d5-4fea-84ec-a1a7effcde1a",
+            "https://firebasestorage.googleapis.com/v0/b/campy-810fc.appspot.com/o/location_images%2Fadventure_bound3.png?alt=media&token=7990b62b-87a8-43c5-a153-6764ba76a2d5"],
+        title="Adventure Bound Camping Resort"
+    )
+
+    adventure_bound_nec = Necessity(
+        rv_compatible=True,
+        generators_allowed=True,
+        fires_allowed=True,
+        max_days=4,
+        pad_type='asphalt'
+    )
+
+    adventure_bound_amen = Amenity(
+        electric_hookup=True,
+        water_hookup=True,
+        septic_hookup=True,
+        assigned_parking=True,
+        tow_vehicle_parking=True,
+        trash_removal=True,
+        water_front=True,
+        pets_allowed=True,
+        internet_access=True
+    )
+
+    adventure_bound.amenity = adventure_bound_amen
+    adventure_bound.necessity = adventure_bound_nec
+    adventure_bound.user = user1
+    db.session.add(adventure_bound)
+
+    asdf = Location(
+        address='',
+        city='',
+        state='',
+        gps_coords='',
+        description="",
+        host_notes='Contact this property for rates and availability',
+        image_urls=[
+            "",
+            "",
+            ""],
+        title=""
+    )
+
+    asdf_nec = Necessity(
+        rv_compatible=True,
+        generators_allowed=True,
+        fires_allowed=True,
+        max_days=4,
+        pad_type='asphalt'
+    )
+
+    asdf_amen = Amenity(
+        electric_hookup=True,
+        water_hookup=True,
+        septic_hookup=True,
+        assigned_parking=True,
+        tow_vehicle_parking=True,
+        trash_removal=True,
+        water_front=True,
+        pets_allowed=True,
+        internet_access=True
+    )
+
+    asdf.amenity = asdf_amen
+    asdf.necessity = asdf_nec
+    asdf.user = user1
+    db.session.add(asdf)
+    
     # asdf = Location(
     #     address='',
     #     city='',
@@ -453,6 +803,7 @@ with app.app_context():
     #     description="",
     #     host_notes='Contact this property for rates and availability',
     #     image_urls=[
+    #         "",
     #         "",
     #         ""],
     #     title=""
@@ -480,42 +831,8 @@ with app.app_context():
 
     # asdf.amenity = asdf_amen
     # asdf.necessity = asdf_nec
-
-    # asdf = Location(
-    #     address='',
-    #     city='',
-    #     state='',
-    #     gps_coords='',
-    #     description="",
-    #     host_notes='Contact this property for rates and availability',
-    #     image_urls=[
-    #         "",
-    #         ""],
-    #     title=""
-    # )
-
-    # asdf_nec = Necessity(
-    #     rv_compatible=True,
-    #     generators_allowed=True,
-    #     fires_allowed=True,
-    #     max_days=4,
-    #     pad_type='asphalt'
-    # )
-
-    # asdf_amen = Amenity(
-    #     electric_hookup=True,
-    #     water_hookup=True,
-    #     septic_hookup=True,
-    #     assigned_parking=True,
-    #     tow_vehicle_parking=True,
-    #     trash_removal=True,
-    #     water_front=True,
-    #     pets_allowed=True,
-    #     internet_access=True
-    # )
-
-    # asdf.amenity = asdf_amen
-    # asdf.necessity = asdf_nec
+    # asdf.user = user1
+    # db.session.add(asdf)
 
     review1 = Review(
         overall_rating=4,
