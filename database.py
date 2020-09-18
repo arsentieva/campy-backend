@@ -397,6 +397,114 @@ with app.app_context():
     fredericksburg.amenity = fredericksburg_amen
     fredericksburg.necessity = fredericksburg_nec
 
+    livingston = Location(
+        address='15152 US Hwy 190 West',
+        city='Onalaska',
+        state='TX',
+        gps_coords='30.812122, -95.128445',
+        description='Welcome to the Lake Livingston/Onalaska KOA! Eddie, the local bald eagle, soars overhead here, and that\'s just one of the many delights at this KOA tucked away in the Piney Woods region of East Texas. The campground wraps along the shore of Lake Livingston, the state\'s second largest lake. It\'s an ideal setting for boating, swimming, fishing for bass and catfish, relaxing and even enjoying a lakefront RV Site. Lakefront amenities include the beautiful beach, a marina(with three ramps, covered slips, transient docks and a fishing pier), a hot tub and a pool. The club-house with a full kitchen is great for reunions, parties and rallies. Enjoy themed weekends(seasonal), planned activities and concessions. Fido will have fun at Kamp K9.',
+        host_notes='Contact this property for rates and availability',
+        image_urls=[
+            "https://firebasestorage.googleapis.com/v0/b/campy-810fc.appspot.com/o/location_images%2Flivingston1.png?alt=media&token=8d869a67-c313-4f63-aae0-a69666c36f83",
+            "https://firebasestorage.googleapis.com/v0/b/campy-810fc.appspot.com/o/location_images%2Flivingston2.png?alt=media&token=0939dc2b-23b3-4b31-a68a-b8b94951d7a2", "https://firebasestorage.googleapis.com/v0/b/campy-810fc.appspot.com/o/location_images%2Flivingston3.png?alt=media&token=3e5f5b33-1544-4a03-9f80-1165b23682ff"],
+        title="Lake Livingston"
+    )
+
+    livingston_nec = Necessity(
+        rv_compatible=True,
+        generators_allowed=True,
+        fires_allowed=True,
+        max_days=4,
+        pad_type='asphalt'
+    )
+
+    livingston_amen = Amenity(
+        electric_hookup=True,
+        water_hookup=True,
+        septic_hookup=True,
+        assigned_parking=True,
+        tow_vehicle_parking=True,
+        trash_removal=True,
+        water_front=True,
+        pets_allowed=True,
+        internet_access=True
+    )
+
+    livingston.amenity = livingston_amen
+    livingston.necessity = livingston_nec
+
+    # asdf = Location(
+    #     address='',
+    #     city='',
+    #     state='',
+    #     gps_coords='',
+    #     description="",
+    #     host_notes='Contact this property for rates and availability',
+    #     image_urls=[
+    #         "",
+    #         ""],
+    #     title=""
+    # )
+
+    # asdf_nec = Necessity(
+    #     rv_compatible=True,
+    #     generators_allowed=True,
+    #     fires_allowed=True,
+    #     max_days=4,
+    #     pad_type='asphalt'
+    # )
+
+    # asdf_amen = Amenity(
+    #     electric_hookup=True,
+    #     water_hookup=True,
+    #     septic_hookup=True,
+    #     assigned_parking=True,
+    #     tow_vehicle_parking=True,
+    #     trash_removal=True,
+    #     water_front=True,
+    #     pets_allowed=True,
+    #     internet_access=True
+    # )
+
+    # asdf.amenity = asdf_amen
+    # asdf.necessity = asdf_nec
+
+    # asdf = Location(
+    #     address='',
+    #     city='',
+    #     state='',
+    #     gps_coords='',
+    #     description="",
+    #     host_notes='Contact this property for rates and availability',
+    #     image_urls=[
+    #         "",
+    #         ""],
+    #     title=""
+    # )
+
+    # asdf_nec = Necessity(
+    #     rv_compatible=True,
+    #     generators_allowed=True,
+    #     fires_allowed=True,
+    #     max_days=4,
+    #     pad_type='asphalt'
+    # )
+
+    # asdf_amen = Amenity(
+    #     electric_hookup=True,
+    #     water_hookup=True,
+    #     septic_hookup=True,
+    #     assigned_parking=True,
+    #     tow_vehicle_parking=True,
+    #     trash_removal=True,
+    #     water_front=True,
+    #     pets_allowed=True,
+    #     internet_access=True
+    # )
+
+    # asdf.amenity = asdf_amen
+    # asdf.necessity = asdf_nec
+
     review1 = Review(
         overall_rating=4,
         noise=5,
