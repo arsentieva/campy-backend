@@ -17,6 +17,7 @@ with app.app_context():
     user1 = User(
         first_name='Tony',
         last_name='Stark',
+        # password is 'password'
         hashed_password='pbkdf2:sha256:150000$7FTGE2c3$1ea0371496f82b298ae582f944120a614cb3e60974c4124bf7ef142fe6a1da90',
         email='theonlyone@stark.com',
         domicile_type='rv',
@@ -28,7 +29,8 @@ with app.app_context():
     user2 = User(
         first_name='Bruce',
         last_name='Wayne',
-        hashed_password='asdfasdf',
+        # password is 'password'
+        hashed_password='pbkdf2:sha256:150000$7FTGE2c3$1ea0371496f82b298ae582f944120a614cb3e60974c4124bf7ef142fe6a1da90',
         email='bruce@wayneenterprises.com',
         domicile_type='camper',
         phone_number='221-516-6944',
@@ -39,7 +41,8 @@ with app.app_context():
     user3 = User(
         first_name='Natasha',
         last_name='Romanoff',
-        hashed_password='asdfasdf',
+        # password is 'password'
+        hashed_password='pbkdf2:sha256:150000$7FTGE2c3$1ea0371496f82b298ae582f944120a614cb3e60974c4124bf7ef142fe6a1da90',
         email='black.widow@avengers.com',
         domicile_type='car',
         phone_number='484-841-6537',
@@ -50,7 +53,8 @@ with app.app_context():
     user4 = User(
         first_name='Elvis',
         last_name='Presley',
-        hashed_password='asdfasdf',
+        # password is 'password'
+        hashed_password='pbkdf2:sha256:150000$7FTGE2c3$1ea0371496f82b298ae582f944120a614cb3e60974c4124bf7ef142fe6a1da90',
         email='elvis@lives.com',
         domicile_type='car',
         phone_number='373-611-7335',
