@@ -736,7 +736,7 @@ with app.app_context():
         generators_allowed=True,
         fires_allowed=True,
         max_days=4,
-        pad_type='asphalt'
+        pad_type='dirt'
     )
 
     adventure_bound_amen = Amenity(
@@ -756,21 +756,138 @@ with app.app_context():
     adventure_bound.user = user1
     db.session.add(adventure_bound)
 
-    asdf = Location(
-        address='',
-        city='',
-        state='',
-        gps_coords='',
-        description="",
+    palm_harbor = Location(
+        address='US-19',
+        city='Palm Harbor',
+        state='FL',
+        gps_coords='28.108982, -82.739346',
+        description="Park your RV here and enjoy!",
         host_notes='Contact this property for rates and availability',
         image_urls=[
-            "",
-            "",
-            ""],
-        title=""
+            "https://firebasestorage.googleapis.com/v0/b/campy-810fc.appspot.com/o/location_images%2Fpalm_harbor1.png?alt=media&token=de9622d5-45a6-4567-a717-adf22d3c7f7a",
+            "https://firebasestorage.googleapis.com/v0/b/campy-810fc.appspot.com/o/location_images%2Fpalm_harbor2.png?alt=media&token=88d19903-5c48-4e56-b97d-0b88cfa49935",
+            "https://firebasestorage.googleapis.com/v0/b/campy-810fc.appspot.com/o/location_images%2Fpalm_harbor3.png?alt=media&token=7441f6f6-9cc2-4beb-9cf6-e1c358e06d2c"],
+        title="RV Campground"
     )
 
-    asdf_nec = Necessity(
+    palm_harbor_nec = Necessity(
+        rv_compatible=True,
+        generators_allowed=False,
+        fires_allowed=False,
+        max_days=4,
+        pad_type='asphalt'
+    )
+
+    palm_harbor_amen = Amenity(
+        electric_hookup=False,
+        water_hookup=False,
+        septic_hookup=False,
+        assigned_parking=True,
+        tow_vehicle_parking=True,
+        trash_removal=False,
+        water_front=False,
+        pets_allowed=False,
+        internet_access=False
+    )
+
+    palm_harbor.amenity = palm_harbor_amen
+    palm_harbor.necessity = palm_harbor_nec
+    palm_harbor.user = user1
+    db.session.add(palm_harbor)
+
+    yogi = Location(
+        address='2250 US Highway 211 E',
+        city='Luray',
+        state='VA',
+        gps_coords='38.673467, -78.391394',
+        description="Campground & recreation area offering water slides, mini-golf, laser tag & adventures for kids.",
+        host_notes='Contact this property for rates and availability',
+        image_urls=[
+            "https://firebasestorage.googleapis.com/v0/b/campy-810fc.appspot.com/o/location_images%2Fyogi1.png?alt=media&token=4267062d-7b32-4ba4-a280-31d36be96894",
+            "https://firebasestorage.googleapis.com/v0/b/campy-810fc.appspot.com/o/location_images%2Fyogi2.png?alt=media&token=f1ec400e-41ba-4b35-9f54-005e7b3e41c0",
+            "https://firebasestorage.googleapis.com/v0/b/campy-810fc.appspot.com/o/location_images%2Fyogi3.png?alt=media&token=4d4a74ff-4349-4669-ae53-671e3e3ff566"],
+        title="Yogi Bear's Jellystone Park"
+    )
+
+    yogi_nec = Necessity(
+        rv_compatible=True,
+        generators_allowed=False,
+        fires_allowed=False,
+        max_days=4,
+        pad_type='asphalt'
+    )
+
+    yogi_amen = Amenity(
+        electric_hookup=False,
+        water_hookup=False,
+        septic_hookup=False,
+        assigned_parking=True,
+        tow_vehicle_parking=True,
+        trash_removal=True,
+        water_front=False,
+        pets_allowed=False,
+        internet_access=True
+    )
+
+    yogi.amenity = yogi_amen
+    yogi.necessity = yogi_nec
+    yogi.user = user1
+    db.session.add(yogi)
+
+    holly_shores = Location(
+        address='491 U.S. 9',
+        city='Cape May',
+        state='NJ',
+        gps_coords='39.001128, -78.887446',
+        description="Gated campground featuring RV sites & cabins, plus a heated pool, fishing lakes, games & free Wi-Fi.",
+        host_notes='Contact this property for rates and availability',
+        image_urls=[
+            "https://firebasestorage.googleapis.com/v0/b/campy-810fc.appspot.com/o/location_images%2Fholly_shores1.png?alt=media&token=6fcce172-3a03-4839-ac8b-088642dd4488",
+            "https://firebasestorage.googleapis.com/v0/b/campy-810fc.appspot.com/o/location_images%2Fholly_shores2.png?alt=media&token=45f67ee6-1897-4c42-b343-1859bef5fa1b",
+            "https://firebasestorage.googleapis.com/v0/b/campy-810fc.appspot.com/o/location_images%2Fholly_shores3.png?alt=media&token=dc0a83f9-41d3-4545-9de0-b1d961fd5ac2"],
+        title="Holly Shores"
+    )
+
+    holly_shores_nec = Necessity(
+        rv_compatible=True,
+        generators_allowed=False,
+        fires_allowed=False,
+        max_days=4,
+        pad_type='asphalt'
+    )
+
+    holly_shores_amen = Amenity(
+        electric_hookup=True,
+        water_hookup=True,
+        septic_hookup=True,
+        assigned_parking=True,
+        tow_vehicle_parking=True,
+        trash_removal=True,
+        water_front=False,
+        pets_allowed=False,
+        internet_access=True
+    )
+
+    holly_shores.amenity = holly_shores_amen
+    holly_shores.necessity = holly_shores_nec
+    holly_shores.user = user1
+    db.session.add(holly_shores)
+
+    dingmans = Location(
+        address='1006 US-209',
+        city='Dingmans Ferry',
+        state='PA',
+        gps_coords='41.211648, -74.873661',
+        description="A couple hours of drive from NY where you can relax with nature",
+        host_notes='Contact this property for rates and availability',
+        image_urls=[
+            "https://firebasestorage.googleapis.com/v0/b/campy-810fc.appspot.com/o/location_images%2Fdingmans1.png?alt=media&token=4ba0daa2-a5b1-4437-a1bd-b4aee6df013b",
+            "https://firebasestorage.googleapis.com/v0/b/campy-810fc.appspot.com/o/location_images%2Fdingmans2.png?alt=media&token=84185be6-a987-4995-a5e3-f5aca140bc08",
+            "https://firebasestorage.googleapis.com/v0/b/campy-810fc.appspot.com/o/location_images%2Fdingmans3.png?alt=media&token=10ab0ab0-f63a-4a55-8133-15c7452a4e64"],
+        title="Dingmans Campground"
+    )
+
+    dingmans_nec = Necessity(
         rv_compatible=True,
         generators_allowed=True,
         fires_allowed=True,
@@ -778,7 +895,46 @@ with app.app_context():
         pad_type='asphalt'
     )
 
-    asdf_amen = Amenity(
+    dingmans_amen = Amenity(
+        electric_hookup=False,
+        water_hookup=False,
+        septic_hookup=False,
+        assigned_parking=True,
+        tow_vehicle_parking=True,
+        trash_removal=False,
+        water_front=False,
+        pets_allowed=True,
+        internet_access=False
+    )
+
+    dingmans.amenity = dingmans_amen
+    dingmans.necessity = dingmans_nec
+    dingmans.user = user1
+    db.session.add(dingmans)
+
+    lake_george = Location(
+        address='1053 U.S. 9',
+        city='Queensbury',
+        state='NY',
+        gps_coords='43.351008, -73.688271',
+        description="Situated in Queensbury in the New York State region, with Six Flags Great Escape and Splashwater Kingdom and Six Flags Great Escape Lodge nearby, Lake George Campsites features accommodation with free private parking.",
+        host_notes='Contact this property for rates and availability',
+        image_urls=[
+            "https://firebasestorage.googleapis.com/v0/b/campy-810fc.appspot.com/o/location_images%2Flake_george1.png?alt=media&token=910b9a5f-7c67-4bd2-9094-3abe43bb3b76",
+            "https://firebasestorage.googleapis.com/v0/b/campy-810fc.appspot.com/o/location_images%2Flake_george2.png?alt=media&token=8474094e-8951-482a-af41-cd6385a0e00a",
+            "https://firebasestorage.googleapis.com/v0/b/campy-810fc.appspot.com/o/location_images%2Flake_george3.png?alt=media&token=56a93f5e-0a78-47fd-af51-5e630661c559"],
+        title="Lake George Campsite"
+    )
+
+    lake_george_nec = Necessity(
+        rv_compatible=True,
+        generators_allowed=True,
+        fires_allowed=True,
+        max_days=4,
+        pad_type='asphalt'
+    )
+
+    lake_george_amen = Amenity(
         electric_hookup=True,
         water_hookup=True,
         septic_hookup=True,
@@ -790,49 +946,10 @@ with app.app_context():
         internet_access=True
     )
 
-    asdf.amenity = asdf_amen
-    asdf.necessity = asdf_nec
-    asdf.user = user1
-    db.session.add(asdf)
-    
-    # asdf = Location(
-    #     address='',
-    #     city='',
-    #     state='',
-    #     gps_coords='',
-    #     description="",
-    #     host_notes='Contact this property for rates and availability',
-    #     image_urls=[
-    #         "",
-    #         "",
-    #         ""],
-    #     title=""
-    # )
-
-    # asdf_nec = Necessity(
-    #     rv_compatible=True,
-    #     generators_allowed=True,
-    #     fires_allowed=True,
-    #     max_days=4,
-    #     pad_type='asphalt'
-    # )
-
-    # asdf_amen = Amenity(
-    #     electric_hookup=True,
-    #     water_hookup=True,
-    #     septic_hookup=True,
-    #     assigned_parking=True,
-    #     tow_vehicle_parking=True,
-    #     trash_removal=True,
-    #     water_front=True,
-    #     pets_allowed=True,
-    #     internet_access=True
-    # )
-
-    # asdf.amenity = asdf_amen
-    # asdf.necessity = asdf_nec
-    # asdf.user = user1
-    # db.session.add(asdf)
+    lake_george.amenity = lake_george_amen
+    lake_george.necessity = lake_george_nec
+    lake_george.user = user1
+    db.session.add(lake_george)
 
     review1 = Review(
         overall_rating=4,
