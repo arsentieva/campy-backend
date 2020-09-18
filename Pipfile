@@ -7,6 +7,7 @@ verify_ssl = true
 pylint = "*"
 pycodestyle = "*"
 rope = "*"
+autopep8 = "*"
 
 [packages]
 flask = "*"

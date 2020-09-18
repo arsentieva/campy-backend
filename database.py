@@ -17,7 +17,7 @@ with app.app_context():
     user1 = User(
         first_name='Tony',
         last_name='Stark',
-        hashed_password='asdfasdf',
+        hashed_password='pbkdf2:sha256:150000$7FTGE2c3$1ea0371496f82b298ae582f944120a614cb3e60974c4124bf7ef142fe6a1da90',
         email='theonlyone@stark.com',
         domicile_type='rv',
         phone_number='678-136-7092',
