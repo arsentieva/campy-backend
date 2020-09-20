@@ -1,4 +1,4 @@
-from app.models.models import db, Location, Amenity, Necessity, User
+from app.models.models import db, Location, Amenity, Necessity, User, Review
 from flask_restx import Resource, Namespace, fields
 from flask_jwt_extended import ( jwt_required, get_jwt_identity)
 
@@ -105,7 +105,22 @@ class Locations(Resource):
     def get(self):
         """Get all locations."""
         locations = Location.query.all()
-        data = [location.to_dictionary() for location in locations]
+        reviews=Review.query.all()
+
+        data = []
+
+        for location in locations:
+            locationDict = location.to_dictionary()
+            locationReviews = []
+
+            for review in reviews:
+                if(review.location_id == location.id):
+                   locationReviews.append(review.to_dictionary()) 
+
+            locationDict["reviews"]= [review for review in locationReviews]
+            
+            data.append(locationDict)
+
         return {"locations": data}
 
     @api.expect(model)
@@ -209,8 +224,12 @@ class LocationById(Resource):
     def get(self, id):
         """Get location information for the provided location id"""
         location = Location.query.get(int(id))
+        data = location.to_dictionary()
+        location_reviews=Review.query.filter_by(location_id=id).all()
+        data["reviews"] = [review.to_dictionary() for review in location_reviews]
+      
         if location:
-            return {"location": location.to_dictionary()}
+            return {"location": data}
         else:
             return {"message": "Locations not found!"}, 404
 
