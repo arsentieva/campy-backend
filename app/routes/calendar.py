@@ -1,5 +1,6 @@
-from app.models.models import db, Calendar, Location, Necessity
+from app.models.models import db, Calendar, Location, Necessity, User
 from flask_restx import Resource, Namespace, fields
+from flask_jwt_extended import ( jwt_required, get_jwt_identity)
 import datetime
 
 api = Namespace('calendar', description='Calendar operations')
@@ -9,8 +10,6 @@ model = api.model("Calendar",
                 {
                     "start_date": fields.Date(required=True, description="Calendar start date"),
                     "end_date": fields.Date(required=True, description="Calendar end date"),
-                    "location_id": fields.Integer(required=True, description="Calendar location", example=1),
-                    "user_id": fields.Integer(required=True, description="Calendar user", example=1),
                 }
 )
 
@@ -27,14 +26,24 @@ class Calendars(Resource):
         return {"dates": data}
 
     # @api.expect(model)
+    @jwt_required
     def post(self, location_id):
         '''Create a new calendar booking with the provided date range'''
-        print(api.payload)
+        userId = get_jwt_identity()
+        if userId == None:
+            return {"message": "User not found!"}, 404
+
+        user = User.query.get(userId)
+        if user == None:
+            return {"message": "no user found for the requested id"}, 404
+
         data = api.payload
         dates = Calendar.query.filter_by(location_id=location_id).all()
 
         if bool(dates) == False:
             calendar = Calendar(**data)
+            calendar.user_id = user.id
+            calendar.location_id = location_id
             db.session.add(calendar)
             db.session.commit()
             return {"message": "Successfully scheduled!"}, 200
@@ -62,6 +71,8 @@ class Calendars(Resource):
 
             # if the requested dates do not envelope or are enveloped by an existing date range, commit the selected dates to the database
             calendar = Calendar(**data)
+            calendar.user_id = user.id
+            calendar.location_id = location_id
             db.session.add(calendar)
             db.session.commit()
             return {"message": "Successfully scheduled!"}, 200
@@ -147,8 +158,8 @@ def get_num_of_days_scheduled(sd, ed):
 
 def check_for_overlap(dates, req_start_date, req_end_date):
     for date in dates:
-        start = date.start_date
-        end = date.end_date
+        start = date.start_date.date()
+        end = date.end_date.date()
                                         # checks if the req time is within an existing time block                    # checks if the req time envelopes an existing time block
         if (req_start_date >= start and req_start_date <= end) or (req_end_date >= start and req_end_date <= end) or (req_start_date <= start and req_end_date >= end):
             return {"message": "Chosen date range is unavailable"}, 202
