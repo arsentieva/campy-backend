@@ -115,7 +115,7 @@ class CalendarById(Resource):
 
             # compare the number of days scheduled to the max number of days allowed
             if num_of_days_scheduled > max_days:
-                return {"message": f"Your requested stay is too long. The max number if days allowed here is {max_days}. You scheduled for {num_of_days_scheduled}"}, 202
+                return {"message": f"Your requested stay is too long. \n The max number if days allowed here is {max_days}. \n You scheduled for {num_of_days_scheduled}"}, 202
 
             # check each scheduled date for any overlap with the requested dates
             if check_for_overlap(database_dates, req_start_date, req_end_date):
