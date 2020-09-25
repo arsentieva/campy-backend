@@ -10,9 +10,9 @@ with app.app_context():
     db.drop_all()
     db.create_all()
 
-    # 4 users
-    # 6 locations
-    # 3 reviews
+    # 5 users
+    # 26 locations
+    # 31 reviews
 
     user1 = User(
         first_name='Tony',
@@ -152,7 +152,7 @@ with app.app_context():
         title="Silver Falls Group Site"
     )
 
-    location3 = Location(
+    location4 = Location(
         address='25218 Eu St.',
         city='Banjarmasin',
         state='WA',
@@ -165,7 +165,7 @@ with app.app_context():
         title="Okanogan-Wenatchee Forest"
     )
 
-    location4 = Location(
+    location5 = Location(
         address='25218 Eu St.',
         city='Banjarmasin',
         state='WA',
@@ -178,7 +178,7 @@ with app.app_context():
         title="Pine Flats Group Campground"
     )
 
-    location5 = Location(
+    location6 = Location(
         address='25218 Eu St.',
         city='Banjarmasin',
         state='WA',
@@ -191,7 +191,7 @@ with app.app_context():
         title="Cottonwood Cabin"
     )
 
-    location6 = Location(
+    location7 = Location(
         address='25218 Eu St.',
         city='Banjarmasin',
         state='WA',
@@ -204,7 +204,7 @@ with app.app_context():
         title="Grouse Creek Group Site"
     )
 
-    location7 = Location(
+    location8 = Location(
         address='25218 Eu St.',
         city='Banjarmasin',
         state='WA',
@@ -252,8 +252,45 @@ with app.app_context():
 
     glacier_campground.amenity = glacier_campground_amen
     glacier_campground.necessity = glacier_campground_nec
-    glacier_campground.user = user1
+    glacier_campground.user = demo_user
     db.session.add(glacier_campground)
+
+    glacier_review1 = Review(
+        overall_rating=3,
+        noise=3,
+        safety=3,
+        cleanliness=3,
+        access=3,
+        site_quality=3,
+        comments='Hosts were welcoming and generous. Their little spot in the heart of this upscale area of Portland gave me and Journey (my dog) a walkable neighborhood to enjoy. I also relished the porch chats with our hosts, which were full of local history and politics, and a long walking tour of the neighborhood.'
+    )
+
+    glacier_review2 = Review(
+        overall_rating=5,
+        noise=3,
+        safety=3,
+        cleanliness=4,
+        access=3,
+        site_quality=3,
+        comments="We knew we would have fun, but it was beyond our expectations. Highly recommend!"
+    )
+
+    glacier_review3 = Review(
+        overall_rating=5,
+        noise=3,
+        safety=3,
+        cleanliness=3,
+        access=3,
+        site_quality=3,
+        comments='Hosts were welcoming and generous. Their little spot in the heart of this upscale area of Portland gave me and Journey (my dog) a walkable neighborhood to enjoy. I also relished the porch chats with our hosts, which were full of local history and politics, and a long walking tour of the neighborhood.'
+    )
+
+    glacier_review1.location = glacier_campground
+    glacier_review1.user = user1
+    glacier_review2.location = glacier_campground
+    glacier_review2.user = user2
+    glacier_review3.location = glacier_campground
+    glacier_review3.user = user3
 
     stillwater = Location(
         address='8590 US-34',
@@ -290,8 +327,57 @@ with app.app_context():
 
     stillwater.amenity = stillwater_amen
     stillwater.necessity = stillwater_nec
-    stillwater.user = user1
+    stillwater.user = demo_user
     db.session.add(stillwater)
+
+    stillwater_review1 = Review(
+        overall_rating=5,
+        noise=4,
+        safety=4,
+        cleanliness=4,
+        access=3,
+        site_quality=3,
+        comments='WOW! We were initially drawn to the novelty of staying overnight in a tree house but left with an experience that touches the soul! Scott exceeded all expectations! His childlike enthusiasm for the tree house and Emerald Forest is truly infectious! You will find yourselves transported back to your youth. No expense was spared, nor detail overlooked. The "surprise" is truly magical and added an element that is indescribable! I now consider this the "8th Wonder of the World" and we cannot wait to go again!!!'
+    )
+
+    stillwater_review2 = Review(
+        overall_rating=5,
+        noise=3,
+        safety=3,
+        cleanliness=3,
+        access=3,
+        site_quality=3,
+        comments='10/10 recommend! Found it on tiktoc and we knew we had to go there! Did not disappoint!'
+    )
+
+    stillwater_review3 = Review(
+        overall_rating=5,
+        noise=4,
+        safety=4,
+        cleanliness=4,
+        access=4,
+        site_quality=4,
+        comments="This place is an absolute must for couples. Its cosy, its got all the conveniences you need (which is really something when you're staying in a treehouse. The host and property manager are very responsive and go to great lengths to make sure you get privacy, and an immediate response if you need them. This place is a gem. Even though its rustic, don't assume technology is sparse - quite the opposite. I'm in IT and even I was amazed at what was there. It wasn't cheap ,but it was worth every penny. We're going back...."
+    )
+
+    stillwater_review4 = Review(
+        overall_rating=5,
+        noise=5,
+        safety=5,
+        cleanliness=5,
+        access=5,
+        site_quality=5,
+        comments='Beautiful and outstanding place! Definitely recommend this stay!'
+    )
+
+    stillwater_review1.location = stillwater
+    stillwater_review1.user = user1
+    stillwater_review2.location = stillwater
+    stillwater_review2.user = user2
+    stillwater_review4.location = stillwater
+    stillwater_review4.user = user3
+
+
 
     west_omaha = Location(
         address='14601 US-6',
@@ -328,8 +414,57 @@ with app.app_context():
 
     west_omaha.amenity = west_omaha_amen
     west_omaha.necessity = west_omaha_nec
-    west_omaha.user = user1
+    west_omaha.user = demo_user
     db.session.add(west_omaha)
+
+    west_omaha_review1 = Review(
+        overall_rating=5,
+        noise=4,
+        safety=4,
+        cleanliness=4,
+        access=3,
+        site_quality=3,
+        comments='WOW! We were initially drawn to the novelty of staying overnight in a tree house but left with an experience that touches the soul! Scott exceeded all expectations! His childlike enthusiasm for the tree house and Emerald Forest is truly infectious! You will find yourselves transported back to your youth. No expense was spared, nor detail overlooked. The "surprise" is truly magical and added an element that is indescribable! I now consider this the "8th Wonder of the World" and we cannot wait to go again!!!'
+    )
+
+    west_omaha_review2 = Review(
+        overall_rating=2,
+        noise=2,
+        safety=2,
+        cleanliness=2,
+        access=2,
+        site_quality=2,
+        comments='Was disappoint! Will not come back'
+    )
+
+    west_omaha_review3 = Review(
+        overall_rating=3,
+        noise=4,
+        safety=4,
+        cleanliness=4,
+        access=4,
+        site_quality=4,
+        comments="Would not comeback"
+    )
+
+    west_omaha_review4 = Review(
+        overall_rating=3,
+        noise=3,
+        safety=3,
+        cleanliness=3,
+        access=3,
+        site_quality=3,
+        comments='Did not like it as much as i would have liked!'
+    )
+
+    west_omaha_review1.location =  west_omaha
+    west_omaha_review1.user = user1
+    west_omaha_review2.location =  west_omaha
+    west_omaha_review2.user = user2
+    west_omaha_review4.location =  west_omaha
+    west_omaha_review4.user = user3
+
+
 
     pokegama = Location(
         address='34385 US-2',
@@ -366,8 +501,57 @@ with app.app_context():
 
     pokegama.amenity = pokegama_amen
     pokegama.necessity = pokegama_nec
-    pokegama.user = user1
+    pokegama.user = demo_user
     db.session.add(pokegama)
+
+    pokegama_review1 = Review(
+        overall_rating=3,
+        noise=4,
+        safety=4,
+        cleanliness=4,
+        access=3,
+        site_quality=3,
+        comments="Not my favorite Place"
+    )
+
+    pokegama_review2 = Review(
+        overall_rating=2,
+        noise=2,
+        safety=2,
+        cleanliness=2,
+        access=2,
+        site_quality=2,
+        comments='Was disappoint! Will not come back'
+    )
+
+    pokegama_review3 = Review(
+        overall_rating=3,
+        noise=4,
+        safety=4,
+        cleanliness=4,
+        access=4,
+        site_quality=4,
+        comments="Would not comeback"
+    )
+
+    pokegama_review4 = Review(
+        overall_rating=3,
+        noise=3,
+        safety=3,
+        cleanliness=3,
+        access=3,
+        site_quality=3,
+        comments='Did not like it as much as i would have liked!'
+    )
+
+    pokegama_review1.location =  pokegama
+    pokegama_review1.user = user1
+    pokegama_review2.location =  pokegama
+    pokegama_review2.user = user2
+    pokegama_review3.location =  pokegama
+    pokegama_review3.user = user3
+    pokegama_review4.location =  pokegama
+    pokegama_review4.user = user4
 
     fredericksburg = Location(
         address='5681 East US-290',
@@ -407,6 +591,43 @@ with app.app_context():
     fredericksburg.user = demo_user
     db.session.add(fredericksburg)
 
+    fredericksburg_review1 = Review(
+        overall_rating=5,
+        noise=3,
+        safety=3,
+        cleanliness=4,
+        access=3,
+        site_quality=3,
+        comments="We knew we would have fun, but it was beyond our expectations. Highly recommend!"
+    )
+
+    fredericksburg_review2 = Review(
+        overall_rating=5,
+        noise=3,
+        safety=3,
+        cleanliness=3,
+        access=3,
+        site_quality=3,
+        comments='Hosts were welcoming and generous. Their little spot in the heart of this upscale area of Portland gave me and Journey (my dog) a walkable neighborhood to enjoy. I also relished the porch chats with our hosts, which were full of local history and politics, and a long walking tour of the neighborhood.'
+    )
+
+    fredericksburg_review3 = Review(
+        overall_rating=4,
+        noise=3,
+        safety=3,
+        cleanliness=3,
+        access=3,
+        site_quality=3,
+        comments="We had a great time. Pictures do not do this location justice! I highly recommend this to anybody. Thank you!"
+    )
+
+    fredericksburg_review1.location =  fredericksburg
+    fredericksburg_review1.user = user1
+    fredericksburg_review2.location =  fredericksburg
+    fredericksburg_review2.user = user2
+    fredericksburg_review3.location =  fredericksburg
+    fredericksburg_review3.user = user3
+
     livingston = Location(
         address='15152 US Hwy 190 West',
         city='Onalaska',
@@ -445,6 +666,44 @@ with app.app_context():
     livingston.user = demo_user
     db.session.add(livingston)
 
+    
+    livingston_review1 = Review(
+        overall_rating=5,
+        noise=3,
+        safety=3,
+        cleanliness=4,
+        access=3,
+        site_quality=3,
+        comments="We knew we would have fun, but it was beyond our expectations. Highly recommend!"
+    )
+
+    livingston_review2 = Review(
+        overall_rating=5,
+        noise=3,
+        safety=3,
+        cleanliness=3,
+        access=3,
+        site_quality=3,
+        comments='Hosts were welcoming and generous. Their little spot in the heart of this upscale area of Portland gave me and Journey (my dog) a walkable neighborhood to enjoy. I also relished the porch chats with our hosts, which were full of local history and politics, and a long walking tour of the neighborhood.'
+    )
+
+    livingston_review3 = Review(
+        overall_rating=4,
+        noise=3,
+        safety=3,
+        cleanliness=3,
+        access=3,
+        site_quality=3,
+        comments="We had a great time. Pictures do not do this location justice! I highly recommend this to anybody. Thank you!"
+    )
+
+    livingston_review1.location =  livingston
+    livingston_review1.user = user1
+    livingston_review2.location =  livingston
+    livingston_review2.user = user2
+    livingston_review3.location =  livingston
+    livingston_review3.user = user3
+
     zephyr = Location(
         address='760 US-50',
         city='Zephyr Cove',
@@ -480,8 +739,48 @@ with app.app_context():
 
     zephyr.amenity = zephyr_amen
     zephyr.necessity = zephyr_nec
-    zephyr.user = user1
+    zephyr.user = demo_user
     db.session.add(zephyr)
+
+       
+    zephyr_review1 = Review(
+        overall_rating=5,
+        noise=3,
+        safety=3,
+        cleanliness=4,
+        access=3,
+        site_quality=3,
+        comments="We knew we would have fun, but it was beyond our expectations. Highly recommend!"
+    )
+
+    zephyr_review2 = Review(
+        overall_rating=5,
+        noise=3,
+        safety=3,
+        cleanliness=3,
+        access=3,
+        site_quality=3,
+        comments='Hosts were welcoming and generous. Their little spot in the heart of this upscale area of Portland gave me and Journey (my dog) a walkable neighborhood to enjoy. I also relished the porch chats with our hosts, which were full of local history and politics, and a long walking tour of the neighborhood.'
+    )
+
+    zephyr_review3 = Review(
+        overall_rating=4,
+        noise=3,
+        safety=3,
+        cleanliness=3,
+        access=3,
+        site_quality=3,
+        comments="We had a great time. Pictures do not do this location justice! I highly recommend this to anybody. Thank you!"
+    )
+
+    zephyr_review1.location =  zephyr
+    zephyr_review1.user = user1
+    zephyr_review2.location =  zephyr
+    zephyr_review2.user = user2
+    zephyr_review3.location =  zephyr
+    zephyr_review3.user = user3
+
+    
 
     wapiti = Location(
         address='2225 US-14',
@@ -520,6 +819,43 @@ with app.app_context():
     wapiti.necessity = wapiti_nec
     wapiti.user = user1
     db.session.add(wapiti)
+
+    wapiti_review1 = Review(
+        overall_rating=5,
+        noise=3,
+        safety=3,
+        cleanliness=4,
+        access=3,
+        site_quality=3,
+        comments="We knew we would have fun, but it was beyond our expectations. Highly recommend!"
+    )
+
+    wapiti_review2 = Review(
+        overall_rating=5,
+        noise=3,
+        safety=3,
+        cleanliness=3,
+        access=3,
+        site_quality=3,
+        comments='Hosts were welcoming and generous. Their little spot in the heart of this upscale area of Portland gave me and Journey (my dog) a walkable neighborhood to enjoy. I also relished the porch chats with our hosts, which were full of local history and politics, and a long walking tour of the neighborhood.'
+    )
+
+    wapiti_review3 = Review(
+        overall_rating=4,
+        noise=3,
+        safety=3,
+        cleanliness=3,
+        access=3,
+        site_quality=3,
+        comments="We had a great time. Pictures do not do this location justice! I highly recommend this to anybody. Thank you!"
+    )
+
+    wapiti_review1.location =  wapiti
+    wapiti_review1.user = user1
+    wapiti_review2.location =  wapiti
+    wapiti_review2.user = user2
+    wapiti_review3.location =  wapiti
+    wapiti_review3.user = user3
 
     falls = Location(
         address='U.S. 26',
@@ -597,8 +933,46 @@ with app.app_context():
 
     custer.amenity = custer_amen
     custer.necessity = custer_nec
-    custer.user = user1
+    custer.user = demo_user
     db.session.add(custer)
+ 
+    custer_review1 = Review(
+        overall_rating=5,
+        noise=3,
+        safety=3,
+        cleanliness=4,
+        access=3,
+        site_quality=3,
+        comments="We knew we would have fun, but it was beyond our expectations. Highly recommend!"
+    )
+
+    custer_review2 = Review(
+        overall_rating=5,
+        noise=3,
+        safety=3,
+        cleanliness=3,
+        access=3,
+        site_quality=3,
+        comments='Hosts were welcoming and generous. Their little spot in the heart of this upscale area of Portland gave me and Journey (my dog) a walkable neighborhood to enjoy. I also relished the porch chats with our hosts, which were full of local history and politics, and a long walking tour of the neighborhood.'
+    )
+
+    custer_review3 = Review(
+        overall_rating=4,
+        noise=3,
+        safety=3,
+        cleanliness=3,
+        access=3,
+        site_quality=3,
+        comments="We had a great time. Pictures do not do this location justice! I highly recommend this to anybody. Thank you!"
+    )
+
+    custer_review1.location =  custer
+    custer_review1.user = user1
+    custer_review2.location =  custer
+    custer_review2.user = user2
+    custer_review3.location =  custer
+    custer_review3.user = user3
+
 
     kansas_city_west = Location(
         address='1473 US-40',
@@ -972,6 +1346,16 @@ with app.app_context():
     )
 
     review3 = Review(
+        overall_rating=4,
+        noise=4,
+        safety=4,
+        cleanliness=4,
+        access=4,
+        site_quality=4,
+        comments="Much an amazing time! Highly recommend!"
+        )
+
+    review4 = Review(
         overall_rating=3,
         noise=3,
         safety=3,
@@ -980,6 +1364,88 @@ with app.app_context():
         site_quality=3,
         comments='Hosts were welcoming and generous. Their little spot in the heart of this upscale area of Portland gave me and Journey (my dog) a walkable neighborhood to enjoy. I also relished the porch chats with our hosts, which were full of local history and politics, and a long walking tour of the neighborhood.'
     )
+
+    review5 = Review(
+        overall_rating=5,
+        noise=3,
+        safety=3,
+        cleanliness=4,
+        access=3,
+        site_quality=3,
+        comments="We knew we would have fun, but it was beyond our expectations. Highly recommend!"
+    )
+
+    review6 = Review(
+        overall_rating=5,
+        noise=3,
+        safety=3,
+        cleanliness=3,
+        access=3,
+        site_quality=3,
+        comments='Hosts were welcoming and generous. Their little spot in the heart of this upscale area of Portland gave me and Journey (my dog) a walkable neighborhood to enjoy. I also relished the porch chats with our hosts, which were full of local history and politics, and a long walking tour of the neighborhood.'
+    )
+
+    review7 = Review(
+        overall_rating=3,
+        noise=3,
+        safety=3,
+        cleanliness=3,
+        access=3,
+        site_quality=3,
+        comments="We had a great time. Pictures do not do this location justice! I highly recommend this to anybody. Thank you!"
+    )
+
+    review8 = Review(
+        overall_rating=4,
+        noise=3,
+        safety=3,
+        cleanliness=5,
+        access=3,
+        site_quality=5,
+        comments="There is so much to say but I feel the only way to understand is by having the experience at staying at this wonderful place. Recommend it to all interested in it."
+    )
+
+    review9 = Review(
+        overall_rating=5,
+        noise=4,
+        safety=4,
+        cleanliness=4,
+        access=3,
+        site_quality=3,
+        comments='WOW! We were initially drawn to the novelty of staying overnight in a tree house but left with an experience that touches the soul! Scott exceeded all expectations! His childlike enthusiasm for the tree house and Emerald Forest is truly infectious! You will find yourselves transported back to your youth. No expense was spared, nor detail overlooked. The "surprise" is truly magical and added an element that is indescribable! I now consider this the "8th Wonder of the World" and we cannot wait to go again!!!'
+    )
+
+    review10 = Review(
+        overall_rating=4,
+        noise=3,
+        safety=3,
+        cleanliness=3,
+        access=3,
+        site_quality=3,
+        comments='10/10 recommend! Found it on tiktoc and we knew we had to go there! Did not disappoint!'
+    )
+
+    review11 = Review(
+        overall_rating=4,
+        noise=4,
+        safety=4,
+        cleanliness=4,
+        access=4,
+        site_quality=4,
+        comments="This place is an absolute must for couples. Its cosy, its got all the conveniences you need (which is really something when you're staying in a treehouse. The host and property manager are very responsive and go to great lengths to make sure you get privacy, and an immediate response if you need them. This place is a gem. Even though its rustic, don't assume technology is sparse - quite the opposite. I'm in IT and even I was amazed at what was there. It wasn't cheap ,but it was worth every penny. We're going back...."
+    )
+
+    review12 = Review(
+        overall_rating=5,
+        noise=5,
+        safety=5,
+        cleanliness=5,
+        access=5,
+        site_quality=5,
+        comments='Beautiful and outstanding place! Definitely recommend this stay!'
+    )
+
+
 
     location1.amenity = location1_amenity
     location1.necessity = location1_neces
