@@ -115,10 +115,10 @@ class Locations(Resource):
 
             for review in reviews:
                 if(review.location_id == location.id):
-                   locationReviews.append(review.to_dictionary()) 
+                   locationReviews.append(review.to_dictionary())
 
             locationDict["reviews"]= [review for review in locationReviews]
-            
+
             data.append(locationDict)
 
         return {"locations": data}
@@ -131,7 +131,7 @@ class Locations(Resource):
         if userId == None:
            return {"message": "Not a valid user access token send "}, 404
 
-        
+
         data = api.payload
 
         amenity_data = {
@@ -227,7 +227,7 @@ class LocationById(Resource):
         data = location.to_dictionary()
         location_reviews=Review.query.filter_by(location_id=id).all()
         data["reviews"] = [review.to_dictionary() for review in location_reviews]
-      
+
         if location:
             return {"location": data}
         else:
@@ -343,4 +343,3 @@ class LocationByUserId(Resource):
         # print(isinstance(locations, object), '***')
         data = [location.to_dictionary() for location in locations]
         return {"locations": data}
-
